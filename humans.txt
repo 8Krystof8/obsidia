@@ -1,0 +1,12 @@
+/* TEAM */
+Developer: Kryštof Vach
+Site: https://obsidia.cz/
+Location: České Budějovice, Czech Republic
+
+/* TECHNOLOGY */
+Stack: HTML, CSS, JS, clean code only
+Design: Custom mesh gradients & glassmorphism
+Tools: VS Code, Figma, Tailwind (CDN)
+
+/* ABOUT */
+We build fast, premium, human-centric websites.
