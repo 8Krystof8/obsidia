@@ -1,12 +1,14 @@
 /* TEAM */
-Developer: Kryštof Vach
-Site: https://obsidia.cz/
-Location: České Budějovice, Czech Republic
+  Founder & Developer: Kryštof Vach
+  Studio: obsidia
+  Site: https://obsidia.cz/
+  Location: Czech Republic
 
 /* TECHNOLOGY */
-Stack: HTML, CSS, JS, clean code only
-Design: Custom mesh gradients & glassmorphism
-Tools: VS Code, Figma, Tailwind (CDN)
+  Stack: HTML5, CSS3 (No frameworks), Vanilla JS
+  Performance: 100/100 Google PageSpeed
+  Server: Apache / Nginx
 
-/* ABOUT */
-We build fast, premium, human-centric websites.
+/* PHILOSOPHY */
+  We don't just build websites. We craft digital assets.
+  Clean code. Zero bloat. Maximum impact.
