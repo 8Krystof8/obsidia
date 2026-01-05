@@ -86,7 +86,6 @@
         .btn-secondary { background: transparent; color: var(--color-text); border: 1px solid var(--border-light); }
         .btn-secondary:hover { border-color: var(--color-text); background: rgba(255,255,255,0.05); transform: scale(1.03); }
 
-        /* BENTO & WORKFLOW */
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 2rem; }
         .card { background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%); border: 1px solid var(--border-light); padding: 3.5rem; border-radius: 24px; transition: border-color 0.3s; display: flex; flex-direction: column; height: 100%; }
         .card:hover { border-color: rgba(255,255,255,0.4); }
@@ -116,7 +115,6 @@
         .icon-plus { transition: transform 0.3s; font-size: 2.4rem; font-weight: 200; }
         .icon-plus.rotate { transform: rotate(45deg); }
 
-        /* CONTACT & SECURITY */
         .contact-section-wrapper { display: flex; justify-content: center; }
         .contact-box { position: relative; width: 100%; max-width: 800px; background: #080808; border-radius: 24px; padding: 5rem; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -126,33 +124,12 @@
         .form-input:focus, .form-textarea:focus { outline: none; border-color: #fff; background: rgba(255, 255, 255, 0.05); }
         .form-textarea { min-height: 120px; resize: vertical; }
 
-        /* NOVÝ BEZPEČNOSTNÍ BOX */
-        .security-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px dashed var(--border-light);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
+        /* Security Box */
+        .security-box { background: rgba(255,255,255,0.03); border: 1px dashed var(--border-light); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; text-align: left; }
         .security-row { display: flex; align-items: center; gap: 2rem; }
-        .security-code-display {
-            font-family: var(--font-tech);
-            font-size: 2rem;
-            letter-spacing: 0.3em;
-            color: var(--color-accent);
-            background: #000;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            user-select: none; /* Aby to nešlo snadno zkopírovat myší */
-        }
+        .security-code-display { font-family: var(--font-tech); font-size: 2rem; letter-spacing: 0.3em; color: var(--color-accent); background: #000; padding: 1rem 2rem; border-radius: 8px; user-select: none; }
         .security-input { flex: 1; }
-        
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            filter: grayscale(1);
-        }
+        button:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(1); }
 
         footer { border-top: 1px solid var(--border-light); padding: 8rem 0 4rem 0; margin-top: 8rem; font-size: 1.3rem; color: var(--color-text-muted); }
         .footer-content { display: flex; justify-content: space-between; align-items: flex-end; }
@@ -165,26 +142,11 @@
         .btn-cookie { padding: 1rem 1.8rem; border-radius: 8px; font-size: 1.3rem; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; flex: 1; }
         .btn-accept { background: #fff; color: #000; }
         .btn-decline { background: transparent; border: 1px solid #333; color: #fff; }
-
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .workflow-line-container { display: none; }
-            .workflow-grid { grid-template-columns: 1fr; gap: 0; position: relative; padding-left: 0; }
-            .step-card { display: flex; flex-direction: row; align-items: flex-start; text-align: left; margin-bottom: 5rem; position: relative; z-index: 1; }
-            .icon-box { margin: 0; flex-shrink: 0; margin-right: 2.5rem; }
-        }
-        @media (max-width: 768px) {
-            .hero { padding-top: 14rem; display: block; } 
-            .hero h1 { font-size: 4.8rem; }
-            .cta-group { display: flex; flex-direction: row; gap: 1.2rem; width: 100%; margin-top: 3rem; }
-            .btn-primary, .btn-secondary { flex: 1; justify-content: center; }
-            .form-grid { grid-template-columns: 1fr; gap: 0; }
-            .security-row { flex-direction: column; align-items: stretch; }
-            .security-code-display { text-align: center; margin-bottom: 1rem; }
-        }
+        @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr; gap: 3rem; } .workflow-line-container { display: none; } .workflow-grid { grid-template-columns: 1fr; gap: 0; position: relative; padding-left: 0; } .step-card { display: flex; flex-direction: row; align-items: flex-start; text-align: left; margin-bottom: 5rem; position: relative; z-index: 1; } .icon-box { margin: 0; flex-shrink: 0; margin-right: 2.5rem; } }
+        @media (max-width: 768px) { .hero { padding-top: 14rem; display: block; } .hero h1 { font-size: 4.8rem; } .cta-group { display: flex; flex-direction: row; gap: 1.2rem; width: 100%; margin-top: 3rem; } .btn-primary, .btn-secondary { flex: 1; justify-content: center; } .form-grid { grid-template-columns: 1fr; gap: 0; } .security-row { flex-direction: column; align-items: stretch; } .security-code-display { text-align: center; margin-bottom: 1rem; } }
     </style>
 </head>
 <body>
@@ -300,7 +262,7 @@
                             <div class="security-box">
                                 <label class="form-label">Bezpečnostní kontrola: Opište kód</label>
                                 <div class="security-row">
-                                    <div id="codeDisplay" class="security-code-display">---</div>
+                                    <div id="codeDisplay" class="security-code-display">...</div>
                                     <input type="text" id="codeInput" class="form-input security-input" placeholder="Zadejte kód" maxlength="4">
                                 </div>
                             </div>
@@ -340,46 +302,29 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // --- 1. VIZUÁLNÍ EFEKTY ---
+            // UI Setup
             const header = document.querySelector("header");
             window.addEventListener("scroll", () => { header.classList.toggle("scrolled", window.scrollY > 20); }, { passive: true });
-            
-            const observer = new IntersectionObserver((entries, obs) => { 
-                entries.forEach(entry => { 
-                    if (entry.isIntersecting) { entry.target.classList.add("visible"); obs.unobserve(entry.target); } 
-                }); 
-            }, { threshold: 0.1 });
+            const observer = new IntersectionObserver((entries, obs) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); obs.unobserve(entry.target); } }); }, { threshold: 0.1 });
             document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+            document.querySelectorAll(".faq-question").forEach(btn => { btn.addEventListener("click", () => { const answer = btn.nextElementSibling; const icon = btn.querySelector(".icon-plus"); if (answer.style.maxHeight) { answer.style.maxHeight = null; icon.classList.remove("rotate"); } else { answer.style.maxHeight = answer.scrollHeight + "px"; icon.classList.add("rotate"); } }); });
 
-            const questions = document.querySelectorAll(".faq-question");
-            questions.forEach(btn => { 
-                btn.addEventListener("click", () => { 
-                    const answer = btn.nextElementSibling;
-                    const icon = btn.querySelector(".icon-plus");
-                    if (answer.style.maxHeight) { answer.style.maxHeight = null; icon.classList.remove("rotate"); } 
-                    else { answer.style.maxHeight = answer.scrollHeight + "px"; icon.classList.add("rotate"); } 
-                }); 
-            });
-
-            // --- 2. COOKIES ---
+            // Cookies
             const cookieBanner = document.getElementById('cookie-banner');
             if (!localStorage.getItem('cookie-consent')) { setTimeout(() => cookieBanner.classList.add('visible'), 2000); }
             document.getElementById('accept-cookies').onclick = () => { localStorage.setItem('cookie-consent', 'accepted'); cookieBanner.classList.remove('visible'); };
             document.getElementById('decline-cookies').onclick = () => { localStorage.setItem('cookie-consent', 'declined'); cookieBanner.classList.remove('visible'); };
 
-            // --- 3. OCHRANA PROTI SPAMU & SHADOWBAN ---
-            
-            // A) Generování kódu
+            // --- SECURE LOGIC ---
             const codeDisplay = document.getElementById('codeDisplay');
             const codeInput = document.getElementById('codeInput');
             const submitBtn = document.getElementById('submitBtn');
             const form = document.getElementById('contactForm');
             
-            // Jednoduchý random kód (písmena a čísla)
+            // 1. CAPTCHA CODE
             const secretCode = Math.random().toString(36).substring(2, 6).toUpperCase();
             codeDisplay.innerText = secretCode;
 
-            // B) Kontrola opsání kódu
             codeInput.addEventListener('input', function() {
                 if (this.value.toUpperCase() === secretCode) {
                     submitBtn.disabled = false;
@@ -391,35 +336,37 @@
                 }
             });
 
-            // C) SHADOWBAN LOGIKA
-            form.addEventListener('submit', function(e) {
-                const email = document.getElementById('email').value.toLowerCase();
+            // 2. HASHOVACÍ FUNKCE (SHA-256)
+            async function sha256(message) {
+                const msgBuffer = new TextEncoder().encode(message);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            }
+
+            // 3. SHADOWBAN CHECK
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault(); // Pozastavíme odeslání pro kontrolu
+                const email = document.getElementById('email').value.toLowerCase().trim();
                 
-                // ZDE SI DOPLŇ EMAILY TOHO ČLOVĚKA:
-                const blockedEmails = [
-                    'otrava@email.cz', 
-                    'spam@seznam.cz',
-                    'jan.novak@example.com' 
+                // ZDE VLOŽTE HASH (SHA-256) JEHO EMAILU
+                // Vygenerujte na: https://emn178.github.io/online-tools/sha256.html
+                // Příklad: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+                const bannedHashes = [
+                    'ZDE_VLOZTE_HASH_KOD_SPAMMERA' 
                 ];
 
-                // Pokud je email na seznamu:
-                if (blockedEmails.some(blocked => email.includes(blocked))) {
-                    e.preventDefault(); // Zastavíme odeslání
-                    
-                    // Ale uživateli ukážeme, že se to povedlo (Psychologická past)
-                    // Vymažeme obsah formuláře a napíšeme poděkování
-                    form.innerHTML = `
-                        <div style="text-align: center; padding: 4rem 0;">
-                            <h3 style="color: #fff; margin-bottom: 1rem;">Odesláno úspěšně</h3>
-                            <p>Děkujeme za vaši zprávu. Ozveme se co nejdříve.</p>
-                        </div>
-                    `;
-                    console.log('Shadowban aktivován: Zpráva zahozena.');
-                }
-                // Pokud není na seznamu, formulář se normálně odešle na FormSubmit.co
-            });
+                const currentHash = await sha256(email);
 
-            console.log("obsidia.cz secure.");
+                if (bannedHashes.includes(currentHash)) {
+                    // Shadowban: Tváříme se že OK, ale neodesíláme
+                    form.innerHTML = `<div style="text-align: center; padding: 4rem 0;"><h3 style="color: #fff; margin-bottom: 1rem;">Odesláno úspěšně</h3><p>Děkujeme za vaši zprávu.</p></div>`;
+                    console.log('Secure block active.');
+                } else {
+                    // Vše OK -> odeslat formulář
+                    form.submit();
+                }
+            });
         });
     </script>
 </body>
