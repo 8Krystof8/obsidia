@@ -24,20 +24,16 @@
         :root {
             --font-main: 'Inter', system-ui, -apple-system, sans-serif;
             --font-tech: 'Courier New', Courier, monospace;
-            
             --color-bg: #050505;
             --color-text: #ececec;
             --color-text-muted: #909090;
             --color-accent: #ffffff;
             --color-red: #ff0000;
-            
             --border-light: rgba(255, 255, 255, 0.12);
             --glass-bg: rgba(5, 5, 5, 0.85);
-            
             --spacing-lg: 14rem;
         }
 
-        /* RESET */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; font-size: 62.5%; width: 100%; overflow-x: hidden; }
         
@@ -49,166 +45,70 @@
             line-height: 1.6;
             overflow-x: hidden;
             width: 100%;
-            /* Dot Grid Texture */
             background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
             background-size: 3rem 3rem;
             -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
         }
 
-        /* TYPOGRAPHY */
-        h1, h2, h3, h4 {
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.04em;
-            color: var(--color-accent);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
+        h1, h2, h3, h4 { font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; color: var(--color-accent); margin-bottom: 3rem; text-align: center; }
         h1 { font-size: clamp(4.5rem, 9vw, 10rem); }
         h2 { font-size: clamp(3rem, 6vw, 5.6rem); margin-bottom: 6rem; }
         
-        p {
-            color: var(--color-text-muted);
-            max-width: 55ch;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            margin-left: auto; margin-right: auto;
-        }
+        p { color: var(--color-text-muted); max-width: 55ch; font-weight: 400; margin-bottom: 1.5rem; text-align: center; margin-left: auto; margin-right: auto; }
+        .label-mono { font-family: var(--font-tech); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--color-text-muted); display: block; margin-bottom: 2rem; opacity: 0.8; text-align: center; }
+        .gradient-text { background: linear-gradient(120deg, #fff 30%, #555 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
 
-        .label-mono {
-            font-family: var(--font-tech);
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 0.15em;
-            color: var(--color-text-muted);
-            display: block;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            text-align: center;
-        }
-
-        .gradient-text {
-            background: linear-gradient(120deg, #fff 30%, #555 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        /* LAYOUT */
         .container { width: 88%; max-width: 1200px; margin: 0 auto; position: relative; }
         .section-padding { padding: var(--spacing-lg) 0; }
 
-        /* HEADER */
-        header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-            padding: 2.5rem 0;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        header.scrolled {
-            background: rgba(5,5,5,0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-light);
-            padding: 1.5rem 0;
-        }
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 2.5rem 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        header.scrolled { background: rgba(5,5,5,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); padding: 1.5rem 0; }
         nav { display: flex; justify-content: space-between; align-items: center; width: 88%; max-width: 1200px; margin: 0 auto; }
-        
-        .logo { 
-            font-size: 2rem; font-weight: 800; color: var(--color-accent); 
-            text-decoration: none; letter-spacing: -0.05em; 
-        }
+        .logo { font-size: 2rem; font-weight: 800; color: var(--color-accent); text-decoration: none; letter-spacing: -0.05em; }
         .blink { color: var(--color-red); animation: blinker 1s step-end infinite; }
         @keyframes blinker { 50% { opacity: 0; } }
         
         .nav-links { display: flex; list-style: none; gap: 4rem; align-items: center; }
         @media (max-width: 768px) { .nav-links { display: none; } }
-        
         .nav-links a { color: var(--color-text-muted); text-decoration: none; font-size: 1.4rem; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--color-accent); }
-        
-        .btn-nav { 
-            border: 1px solid var(--border-light); 
-            padding: 0.8rem 2rem; border-radius: 999px; 
-            color: var(--color-text) !important; 
-            transition: all 0.3s; font-size: 1.4rem; 
-        }
+        .btn-nav { border: 1px solid var(--border-light); padding: 0.8rem 2rem; border-radius: 999px; color: var(--color-text) !important; transition: all 0.3s; font-size: 1.4rem; }
         .btn-nav:hover { background: var(--color-accent); color: var(--color-bg) !important; border-color: var(--color-accent); }
 
-        /* HERO */
-        .hero { 
-            min-height: 95vh; 
-            display: flex; align-items: center; 
-            padding-top: 10rem; 
-            position: relative; 
-        }
+        .hero { min-height: 95vh; display: flex; align-items: center; padding-top: 10rem; position: relative; }
         .hero-content { width: 100%; max-width: 900px; } 
         .hero .label-mono, .hero h1, .hero p { text-align: left; margin-left: 0; } 
         .cta-group { display: flex; gap: 2rem; margin-top: 4rem; justify-content: flex-start; }
 
-        /* BUTTONS */
-        .btn-primary, .btn-secondary {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 1.6rem 3.2rem; border-radius: 999px;
-            text-decoration: none; font-weight: 600; font-size: 1.5rem;
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); 
-            border: none; cursor: pointer; white-space: nowrap;
-        }
+        .btn-primary, .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 1.6rem 3.2rem; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 1.5rem; transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); border: none; cursor: pointer; white-space: nowrap; }
         .btn-primary { background: var(--color-accent); color: var(--color-bg); }
         .btn-primary:hover { transform: scale(1.03); }
         .btn-secondary { background: transparent; color: var(--color-text); border: 1px solid var(--border-light); }
         .btn-secondary:hover { border-color: var(--color-text); background: rgba(255,255,255,0.05); transform: scale(1.03); }
 
-        /* BENTO GRID */
+        /* BENTO & WORKFLOW */
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 2rem; }
-        .card {
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
-            border: 1px solid var(--border-light); padding: 3.5rem; border-radius: 24px;
-            transition: border-color 0.3s; display: flex; flex-direction: column; height: 100%;
-        }
+        .card { background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%); border: 1px solid var(--border-light); padding: 3.5rem; border-radius: 24px; transition: border-color 0.3s; display: flex; flex-direction: column; height: 100%; }
         .card:hover { border-color: rgba(255,255,255,0.4); }
         .card-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
         .card-icon { font-size: 2.2rem; color: var(--color-accent); }
         .card h3 { text-align: left; margin-bottom: 1rem; font-size: 2rem; }
         .card p { text-align: left; margin-left: 0; font-size: 1.5rem; }
 
-        /* WORKFLOW */
         .workflow-wrapper { position: relative; margin-top: 6rem; }
-        
-        .workflow-line-container {
-            position: absolute; top: 32px; left: 0; width: 100%; height: 1px;
-            border-top: 1px dotted rgba(255, 255, 255, 0.3); z-index: 1;
-        }
-
+        .workflow-line-container { position: absolute; top: 32px; left: 0; width: 100%; height: 1px; border-top: 1px dotted rgba(255, 255, 255, 0.3); z-index: 1; }
         .workflow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; position: relative; z-index: 2; }
         .step-card { text-align: center; }
-        
-        .icon-box {
-            width: 64px; height: 64px; 
-            background: var(--color-bg); 
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 2rem auto; 
-            position: relative; z-index: 2;
-            transition: border-color 0.3s;
-        }
+        .icon-box { width: 64px; height: 64px; background: var(--color-bg); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem auto; position: relative; z-index: 2; transition: border-color 0.3s; }
         .step-card:hover .icon-box { border-color: #fff; }
         .step-icon { width: 24px; height: 24px; fill: #fff; }
-        
         .step-num { font-family: var(--font-tech); color: var(--color-text-muted); font-size: 1rem; margin-bottom: 0.5rem; display: block; }
         .step-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
         .step-card p { font-size: 1.4rem; }
 
-        /* FAQ */
         .faq-container { max-width: 800px; margin: 0 auto; margin-top: 2rem; }
         .faq-item { border-bottom: 1px solid var(--border-light); }
-        .faq-question {
-            width: 100%; text-align: left; background: none; border: none;
-            padding: 3rem 0; color: var(--color-text); font-size: 1.8rem; font-weight: 500;
-            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-        }
+        .faq-question { width: 100%; text-align: left; background: none; border: none; padding: 3rem 0; color: var(--color-text); font-size: 1.8rem; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .faq-question:hover { color: var(--color-accent); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--color-text-muted); padding-right: 2rem; }
         .faq-answer.open { max-height: 300px; padding-bottom: 3rem; }
@@ -216,139 +116,82 @@
         .icon-plus { transition: transform 0.3s; font-size: 2.4rem; font-weight: 200; }
         .icon-plus.rotate { transform: rotate(45deg); }
 
-        /* KONTAKT */
+        /* CONTACT & SECURITY */
         .contact-section-wrapper { display: flex; justify-content: center; }
-        .contact-box {
-            position: relative; width: 100%; max-width: 800px;
-            background: #080808;
-            border-radius: 24px; padding: 5rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            overflow: hidden;
-        }
-        .contact-box::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 70%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); }
-        .contact-box::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
-
+        .contact-box { position: relative; width: 100%; max-width: 800px; background: #080808; border-radius: 24px; padding: 5rem; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
         .form-group { margin-bottom: 2.5rem; }
         .form-label { display: block; margin-bottom: 1rem; font-size: 1.2rem; color: #888; margin-left: 2px; text-align: left; font-family: var(--font-tech); text-transform: uppercase; }
-        .form-input, .form-textarea {
-            width: 100%; background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-light);
-            padding: 1.5rem; color: #fff; border-radius: 12px;
-            font-family: var(--font-main); font-size: 1.6rem;
-            transition: all 0.3s;
-        }
+        .form-input, .form-textarea { width: 100%; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-light); padding: 1.5rem; color: #fff; border-radius: 12px; font-family: var(--font-main); font-size: 1.6rem; transition: all 0.3s; }
         .form-input:focus, .form-textarea:focus { outline: none; border-color: #fff; background: rgba(255, 255, 255, 0.05); }
         .form-textarea { min-height: 120px; resize: vertical; }
 
-        /* FOOTER */
+        /* NOVÝ BEZPEČNOSTNÍ BOX */
+        .security-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px dashed var(--border-light);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        .security-row { display: flex; align-items: center; gap: 2rem; }
+        .security-code-display {
+            font-family: var(--font-tech);
+            font-size: 2rem;
+            letter-spacing: 0.3em;
+            color: var(--color-accent);
+            background: #000;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            user-select: none; /* Aby to nešlo snadno zkopírovat myší */
+        }
+        .security-input { flex: 1; }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            filter: grayscale(1);
+        }
+
         footer { border-top: 1px solid var(--border-light); padding: 8rem 0 4rem 0; margin-top: 8rem; font-size: 1.3rem; color: var(--color-text-muted); }
         .footer-content { display: flex; justify-content: space-between; align-items: flex-end; }
         .footer-links a { color: #fff; text-decoration: none; margin-left: 3rem; transition: opacity 0.3s; }
         .footer-links a:hover { opacity: 0.6; }
 
-        /* COOKIE BANNER */
-        .cookie-wrapper {
-            position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
-            width: 90%; max-width: 380px;
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            transform: translateY(120%);
-            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-        }
+        .cookie-wrapper { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; width: 90%; max-width: 380px; background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(120%); transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
         .cookie-wrapper.visible { transform: translateY(0); }
-        .cookie-content h4 { text-align: left; font-size: 1.4rem; margin-bottom: 1rem; color: #fff; }
-        .cookie-content p { text-align: left; font-size: 1.3rem; margin-bottom: 2rem; color: #888; line-height: 1.5; }
-        .cookie-actions { display: flex; gap: 1rem; }
-        .btn-cookie { 
-            padding: 1rem 1.8rem; border-radius: 8px; font-size: 1.3rem; font-weight: 500; 
-            cursor: pointer; transition: all 0.2s; border: none; flex: 1;
-        }
+        .cookie-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .btn-cookie { padding: 1rem 1.8rem; border-radius: 8px; font-size: 1.3rem; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; flex: 1; }
         .btn-accept { background: #fff; color: #000; }
-        .btn-accept:hover { background: #e6e6e6; }
         .btn-decline { background: transparent; border: 1px solid #333; color: #fff; }
-        .btn-decline:hover { border-color: #666; }
 
-        /* ANIMACE */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- MOBILE FIXES & OPTIMIZATION --- */
         @media (max-width: 900px) {
             .bento-grid { grid-template-columns: 1fr; gap: 3rem; }
-            
-            /* WORKFLOW MOBILE */
             .workflow-line-container { display: none; }
             .workflow-grid { grid-template-columns: 1fr; gap: 0; position: relative; padding-left: 0; }
-            
-            /* Svislá čára */
-            .workflow-grid::before {
-                content: ''; position: absolute; top: 0; bottom: 0; left: 32px;
-                width: 1px; border-left: 1px dotted rgba(255, 255, 255, 0.3); z-index: 0;
-            }
-            
-            .step-card {
-                display: flex; flex-direction: row; align-items: flex-start; text-align: left;
-                margin-bottom: 5rem; position: relative; z-index: 1;
-            }
-            .step-card:last-child { margin-bottom: 0; }
-            
-            /* OPRAVA: Maska pro konec čáry (zakryje čáru pod poslední ikonou) */
-            .step-card:last-child::after {
-                content: ''; position: absolute; left: 30px; top: 34px; bottom: 0; width: 5px;
-                background: var(--color-bg); z-index: 0;
-            }
-
-            .icon-box { margin: 0; flex-shrink: 0; margin-right: 2.5rem; background: var(--color-bg); }
-            .step-content { padding-top: 0.5rem; }
-            .step-card h3, .step-card p, .step-num { text-align: left; }
+            .step-card { display: flex; flex-direction: row; align-items: flex-start; text-align: left; margin-bottom: 5rem; position: relative; z-index: 1; }
+            .icon-box { margin: 0; flex-shrink: 0; margin-right: 2.5rem; }
         }
-
         @media (max-width: 768px) {
-            .section-padding { padding: 12rem 0; } 
-            .container { width: 85%; } 
-            nav { width: 85%; }
-            .cookie-wrapper { left: 5%; right: 5%; width: 90%; max-width: none; bottom: 1.5rem; }
-
-            /* Hero Fixes */
             .hero { padding-top: 14rem; display: block; } 
-            .hero h1, .hero p, .hero .label-mono { text-align: left; margin-left: 0; }
-            .hero h1 { margin-bottom: 2.5rem; font-size: 4.8rem; }
-
+            .hero h1 { font-size: 4.8rem; }
             .cta-group { display: flex; flex-direction: row; gap: 1.2rem; width: 100%; margin-top: 3rem; }
-            .btn-primary, .btn-secondary { flex: 1; padding: 1.4rem 1rem; font-size: 1.4rem; display: flex; justify-content: center; }
-
+            .btn-primary, .btn-secondary { flex: 1; justify-content: center; }
             .form-grid { grid-template-columns: 1fr; gap: 0; }
-            .contact-box { padding: 2.5rem; }
-            .footer-content { flex-direction: column; align-items: flex-start; gap: 3rem; text-align: left; }
-            .footer-links a { margin: 0 2rem 0 0; display: inline-block; }
+            .security-row { flex-direction: column; align-items: stretch; }
+            .security-code-display { text-align: center; margin-bottom: 1rem; }
         }
     </style>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "obsidia",
-      "url": "https://obsidia.cz",
-      "logo": "https://obsidia.cz/logo.png",
-      "priceRange": "$$$",
-      "sameAs": ["https://www.instagram.com/obsidia.cz/"]
-    }
-    </script>
 </head>
 <body>
 
     <header>
         <nav>
-            <a href="#" class="logo" aria-label="obsidia domů">
-                obsidia<span class="blink">_</span>
-            </a>
+            <a href="#" class="logo" aria-label="obsidia domů">obsidia<span class="blink">_</span></a>
             <ul class="nav-links">
                 <li><a href="#sluzby">Služby</a></li>
                 <li><a href="#proces">Proces</a></li>
@@ -362,15 +205,8 @@
         <section class="hero">
             <div class="container hero-content fade-in">
                 <span class="label-mono">EST. 2025 / CZECH REPUBLIC</span>
-                <h1>
-                    Design.<br>
-                    Kód.<br>
-                    <span class="gradient-text">Výsledky.</span>
-                </h1>
-                <p>
-                    Tvoříme weby, které nejen skvěle vypadají, ale hlavně prodávají. 
-                    Žádné šablony. Žádný zbytečný balast. Jen čistý kód a design, který buduje důvěru vaší značky.
-                </p>
+                <h1>Design.<br>Kód.<br><span class="gradient-text">Výsledky.</span></h1>
+                <p>Tvoříme weby, které nejen skvěle vypadají, ale hlavně prodávají. Žádné šablony. Žádný zbytečný balast. Jen čistý kód a design, který buduje důvěru vaší značky.</p>
                 <div class="cta-group">
                     <a href="#kontakt" class="btn-primary">Nezávazná konzultace</a>
                     <a href="#sluzby" class="btn-secondary">Co umíme</a>
@@ -384,24 +220,15 @@
                 <h2>Co pro vás vytvoříme?</h2>
                 <div class="bento-grid">
                     <article class="card fade-in">
-                        <div class="card-header">
-                            <span class="card-icon">✦</span>
-                            <h3>Weby & Prezentace</h3>
-                        </div>
+                        <div class="card-header"><span class="card-icon">✦</span><h3>Weby & Prezentace</h3></div>
                         <p>Profesionální stránky pro firmy, právníky či architekty. Váš web bude vaší nejlepší vizitkou, která funguje 24/7.</p>
                     </article>
                     <article class="card fade-in">
-                        <div class="card-header">
-                            <span class="card-icon">⚡</span>
-                            <h3>E-shopy Lite</h3>
-                        </div>
+                        <div class="card-header"><span class="card-icon">⚡</span><h3>E-shopy Lite</h3></div>
                         <p>Rychlé prodejní platformy zaměřené na konverze. Ideální pro menší množství produktů, kde rozhoduje rychlost a styl.</p>
                     </article>
                     <article class="card fade-in">
-                        <div class="card-header">
-                            <span class="card-icon">∞</span>
-                            <h3>VIP Správa</h3>
-                        </div>
+                        <div class="card-header"><span class="card-icon">∞</span><h3>VIP Správa</h3></div>
                         <p>Nechcete nic řešit? Nemusíte. O aktualizace textů a fotek se staráme my. Napíšete nám a my to obratem zařídíme.</p>
                     </article>
                 </div>
@@ -412,7 +239,6 @@
             <div class="container">
                 <span class="label-mono">WORKFLOW</span>
                 <h2>Jak probíhá spolupráce?</h2>
-                
                 <div class="workflow-wrapper fade-in">
                     <div class="workflow-line-container"></div>
                     <div class="workflow-grid">
@@ -450,34 +276,38 @@
                         <button class="faq-question">Musím umět programovat?<span class="icon-plus">+</span></button>
                         <div class="faq-answer"><p>Vůbec ne. Nabízíme službu VIP Správa. Stačí napsat a my web upravíme.</p></div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question">Zajistíte i texty a fotky?<span class="icon-plus">+</span></button>
-                        <div class="faq-answer"><p>Ano. Zajistíme poutavé texty i licencované fotografie.</p></div>
-                    </div>
                 </div>
             </div>
         </section>
 
         <section id="kontakt" class="section-padding">
             <div class="container">
-                <span class="label-mono">INITIATE SEQUENCE</span>
+                <span class="label-mono">SECURE CHANNEL</span>
                 <h2 style="margin-bottom: 4rem;">Napište nám</h2>
                 <div class="contact-section-wrapper fade-in">
                     <div class="contact-box">
                         <form id="contactForm" action="https://formsubmit.co/info@obsidia.cz" method="POST">
                             <input type="hidden" name="_next" value="https://obsidia.cz/">
                             <input type="hidden" name="_subject" value="Nová poptávka z obsidia.cz">
-                            <input type="hidden" name="_captcha" value="true">
                             <input type="text" name="_honey" style="display:none">
                             
                             <div class="form-grid">
                                 <div class="form-group"><label for="name" class="form-label">Jméno / Firma</label><input type="text" id="name" name="name" class="form-input" required placeholder="Jan Novák"></div>
                                 <div class="form-group"><label for="email" class="form-label">Email na vás</label><input type="email" id="email" name="email" class="form-input" required placeholder="jan@firma.cz"></div>
                             </div>
-                            <div class="form-group"><label for="message" class="form-label">Vaše vize (stručně)</label><textarea id="message" name="message" class="form-textarea" placeholder="Potřebujeme moderní web..."></textarea></div>
-                            <button type="submit" class="btn-primary" style="width: 100%;">Odeslat poptávku</button>
+                            <div class="form-group"><label for="message" class="form-label">Vaše vize</label><textarea id="message" name="message" class="form-textarea" required placeholder="Potřebujeme moderní web..."></textarea></div>
+                            
+                            <div class="security-box">
+                                <label class="form-label">Bezpečnostní kontrola: Opište kód</label>
+                                <div class="security-row">
+                                    <div id="codeDisplay" class="security-code-display">---</div>
+                                    <input type="text" id="codeInput" class="form-input security-input" placeholder="Zadejte kód" maxlength="4">
+                                </div>
+                            </div>
+
+                            <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%;" disabled>Odeslat poptávku</button>
                         </form>
-                        <p style="margin-top: 2rem; font-size: 1.3rem;">Nebo pište přímo na: <a href="mailto:info@obsidia.cz" style="color: #fff; text-decoration: underline;">info@obsidia.cz</a></p>
+                        <p style="margin-top: 2rem; font-size: 1.3rem;">Nebo pište na: <a href="mailto:info@obsidia.cz" style="color: #fff; text-decoration: underline;">info@obsidia.cz</a></p>
                     </div>
                 </div>
             </div>
@@ -488,10 +318,10 @@
         <div class="container footer-content">
             <div class="col">
                 <p style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; text-align: left;">obsidia.</p>
-                <p style="text-align: left;">© 2025 obsidia studio. Všechna práva vyhrazena.<br>Designed & Coded in Czech Republic.</p>
+                <p style="text-align: left;">© 2025 obsidia studio.<br>Designed & Coded in Czech Republic.</p>
             </div>
             <div class="col footer-links">
-                <a href="https://www.instagram.com/obsidia.cz/" target="_blank" aria-label="Instagram">Instagram ↗</a>
+                <a href="https://www.instagram.com/obsidia.cz/" target="_blank">Instagram ↗</a>
                 <a href="mailto:info@obsidia.cz">Email</a>
             </div>
         </div>
@@ -500,86 +330,96 @@
     <div id="cookie-banner" class="cookie-wrapper">
         <div class="cookie-content">
             <h4>Cookies & Soukromí 🍪</h4>
-            <p>Používáme jen nezbytné technologie pro chod webu. Žádné zbytečné sledování. Souhlasíte?</p>
+            <p>Používáme jen nezbytné technologie pro chod webu. Souhlasíte?</p>
             <div class="cookie-actions">
-                <button id="accept-cookies" class="btn-cookie btn-accept">Přijmout vše</button>
+                <button id="accept-cookies" class="btn-cookie btn-accept">Přijmout</button>
                 <button id="decline-cookies" class="btn-cookie btn-decline">Odmítnout</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Start Time Trap - Měříme čas od načtení stránky
-        const pageLoadTime = Date.now();
-
         document.addEventListener("DOMContentLoaded", () => {
-            // 1. Existing Scripts
+            // --- 1. VIZUÁLNÍ EFEKTY ---
             const header = document.querySelector("header");
             window.addEventListener("scroll", () => { header.classList.toggle("scrolled", window.scrollY > 20); }, { passive: true });
-            const observer = new IntersectionObserver((entries, obs) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); obs.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            
+            const observer = new IntersectionObserver((entries, obs) => { 
+                entries.forEach(entry => { 
+                    if (entry.isIntersecting) { entry.target.classList.add("visible"); obs.unobserve(entry.target); } 
+                }); 
+            }, { threshold: 0.1 });
             document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
             const questions = document.querySelectorAll(".faq-question");
-            questions.forEach(btn => { btn.addEventListener("click", () => { const answer = btn.nextElementSibling; const icon = btn.querySelector(".icon-plus"); if (answer.style.maxHeight) { answer.style.maxHeight = null; answer.classList.remove("open"); icon.classList.remove("rotate"); } else { answer.style.maxHeight = answer.scrollHeight + "px"; answer.classList.add("open"); icon.classList.add("rotate"); } }); });
-            console.log("%c obsidia.cz %c\n Status: Online. ", "background: #fff; color: #000; padding: 4px; font-weight: bold;", "color: #888;");
+            questions.forEach(btn => { 
+                btn.addEventListener("click", () => { 
+                    const answer = btn.nextElementSibling;
+                    const icon = btn.querySelector(".icon-plus");
+                    if (answer.style.maxHeight) { answer.style.maxHeight = null; icon.classList.remove("rotate"); } 
+                    else { answer.style.maxHeight = answer.scrollHeight + "px"; icon.classList.add("rotate"); } 
+                }); 
+            });
 
-            // 2. COOKIE LOGIC
+            // --- 2. COOKIES ---
             const cookieBanner = document.getElementById('cookie-banner');
-            const acceptBtn = document.getElementById('accept-cookies');
-            const declineBtn = document.getElementById('decline-cookies');
+            if (!localStorage.getItem('cookie-consent')) { setTimeout(() => cookieBanner.classList.add('visible'), 2000); }
+            document.getElementById('accept-cookies').onclick = () => { localStorage.setItem('cookie-consent', 'accepted'); cookieBanner.classList.remove('visible'); };
+            document.getElementById('decline-cookies').onclick = () => { localStorage.setItem('cookie-consent', 'declined'); cookieBanner.classList.remove('visible'); };
 
-            // Check if user already decided
-            if (!localStorage.getItem('cookie-consent')) {
-                // Wait 2 seconds before showing
-                setTimeout(() => {
-                    cookieBanner.classList.add('visible');
-                }, 2000);
-            }
+            // --- 3. OCHRANA PROTI SPAMU & SHADOWBAN ---
+            
+            // A) Generování kódu
+            const codeDisplay = document.getElementById('codeDisplay');
+            const codeInput = document.getElementById('codeInput');
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('contactForm');
+            
+            // Jednoduchý random kód (písmena a čísla)
+            const secretCode = Math.random().toString(36).substring(2, 6).toUpperCase();
+            codeDisplay.innerText = secretCode;
 
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie-consent', 'accepted');
-                cookieBanner.classList.remove('visible');
+            // B) Kontrola opsání kódu
+            codeInput.addEventListener('input', function() {
+                if (this.value.toUpperCase() === secretCode) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                    submitBtn.style.filter = "none";
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = "0.5";
+                }
             });
 
-            declineBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie-consent', 'declined');
-                cookieBanner.classList.remove('visible');
+            // C) SHADOWBAN LOGIKA
+            form.addEventListener('submit', function(e) {
+                const email = document.getElementById('email').value.toLowerCase();
+                
+                // ZDE SI DOPLŇ EMAILY TOHO ČLOVĚKA:
+                const blockedEmails = [
+                    'otrava@email.cz', 
+                    'spam@seznam.cz',
+                    'jan.novak@example.com' 
+                ];
+
+                // Pokud je email na seznamu:
+                if (blockedEmails.some(blocked => email.includes(blocked))) {
+                    e.preventDefault(); // Zastavíme odeslání
+                    
+                    // Ale uživateli ukážeme, že se to povedlo (Psychologická past)
+                    // Vymažeme obsah formuláře a napíšeme poděkování
+                    form.innerHTML = `
+                        <div style="text-align: center; padding: 4rem 0;">
+                            <h3 style="color: #fff; margin-bottom: 1rem;">Odesláno úspěšně</h3>
+                            <p>Děkujeme za vaši zprávu. Ozveme se co nejdříve.</p>
+                        </div>
+                    `;
+                    console.log('Shadowban aktivován: Zpráva zahozena.');
+                }
+                // Pokud není na seznamu, formulář se normálně odešle na FormSubmit.co
             });
 
-            // -----------------------------------------------------
-            // 3. NOVÁ OCHRANA PROTI SPAMU
-            // -----------------------------------------------------
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    
-                    // A) NASTAVENÍ ZAKÁZANÝCH OSOB (Upravte zde)
-                    // Sem do uvozovek napište jeho email (malými písmeny)
-                    const blockedEmails = ['otrava@email.cz', 'spam@domena.cz']; 
-                    
-                    const emailValue = document.getElementById('email').value.toLowerCase();
-                    const messageValue = document.getElementById('message').value.toLowerCase();
-
-                    // B) KONTROLA BLACKLISTU
-                    // Pokud email obsahuje zakázanou adresu, zablokujeme odeslání
-                    const isBlocked = blockedEmails.some(b => emailValue.includes(b));
-
-                    if (isBlocked) {
-                        e.preventDefault(); 
-                        // Tváříme se, že se to odeslalo (aby to nezkoušel z jiného mailu), ale neodešle se nic.
-                        alert('Děkujeme, vaše zpráva byla přijata.'); 
-                        console.log('Spam zablokován na základě emailu.');
-                        return false;
-                    }
-
-                    // C) KONTROLA ČASU (Time Trap)
-                    // Pokud někdo odešle formulář dříve než za 4 sekundy (4000 ms) od načtení
-                    if (Date.now() - pageLoadTime < 4000) {
-                        e.preventDefault();
-                        alert('Formulář byl odeslán příliš rychle. Jste robot? Zkuste to prosím znovu za pár vteřin.');
-                        return false;
-                    }
-                });
-            }
+            console.log("obsidia.cz secure.");
         });
     </script>
 </body>
