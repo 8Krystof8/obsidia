@@ -464,7 +464,7 @@
                 <h2 style="margin-bottom: 4rem;">Napište nám</h2>
                 <div class="contact-section-wrapper fade-in">
                     <div class="contact-box">
-                        <form action="https://formsubmit.co/info@obsidia.cz" method="POST">
+                        <form id="contactForm" action="https://formsubmit.co/info@obsidia.cz" method="POST">
                             <input type="hidden" name="_next" value="https://obsidia.cz/">
                             <input type="hidden" name="_subject" value="Nová poptávka z obsidia.cz">
                             <input type="hidden" name="_captcha" value="true">
@@ -509,6 +509,9 @@
     </div>
 
     <script>
+        // Start Time Trap - Měříme čas od načtení stránky
+        const pageLoadTime = Date.now();
+
         document.addEventListener("DOMContentLoaded", () => {
             // 1. Existing Scripts
             const header = document.querySelector("header");
@@ -535,14 +538,48 @@
             acceptBtn.addEventListener('click', () => {
                 localStorage.setItem('cookie-consent', 'accepted');
                 cookieBanner.classList.remove('visible');
-                // Zde by se spustily skripty (např. Google Analytics), pokud byste je měl.
             });
 
             declineBtn.addEventListener('click', () => {
                 localStorage.setItem('cookie-consent', 'declined');
                 cookieBanner.classList.remove('visible');
-                // Zde se nespustí nic, jen se uloží volba.
             });
+
+            // -----------------------------------------------------
+            // 3. NOVÁ OCHRANA PROTI SPAMU
+            // -----------------------------------------------------
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    
+                    // A) NASTAVENÍ ZAKÁZANÝCH OSOB (Upravte zde)
+                    // Sem do uvozovek napište jeho email (malými písmeny)
+                    const blockedEmails = ['otrava@email.cz', 'spam@domena.cz']; 
+                    
+                    const emailValue = document.getElementById('email').value.toLowerCase();
+                    const messageValue = document.getElementById('message').value.toLowerCase();
+
+                    // B) KONTROLA BLACKLISTU
+                    // Pokud email obsahuje zakázanou adresu, zablokujeme odeslání
+                    const isBlocked = blockedEmails.some(b => emailValue.includes(b));
+
+                    if (isBlocked) {
+                        e.preventDefault(); 
+                        // Tváříme se, že se to odeslalo (aby to nezkoušel z jiného mailu), ale neodešle se nic.
+                        alert('Děkujeme, vaše zpráva byla přijata.'); 
+                        console.log('Spam zablokován na základě emailu.');
+                        return false;
+                    }
+
+                    // C) KONTROLA ČASU (Time Trap)
+                    // Pokud někdo odešle formulář dříve než za 4 sekundy (4000 ms) od načtení
+                    if (Date.now() - pageLoadTime < 4000) {
+                        e.preventDefault();
+                        alert('Formulář byl odeslán příliš rychle. Jste robot? Zkuste to prosím znovu za pár vteřin.');
+                        return false;
+                    }
+                });
+            }
         });
     </script>
 </body>
